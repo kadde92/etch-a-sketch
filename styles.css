@@ -1,5 +1,5 @@
 * {
-    box-sizing: border-box;
+    box-sizing: content-box;
 }
 
 body, h1, h2, h3, p, div, ul, ol, li {
@@ -15,26 +15,30 @@ body {
 .grid {
     border-radius: 5px;
     border: 2px solid #f2e8cf;
-    height: 620px;
-    width: 605px;
+    height: 600px;
+    width: 600px;
     display: flex;
     flex-wrap: wrap;
-    flex-basis: auto;
-    flex-grow: 0;
-    flex-shrink: 1;
+    /* flex-basis: auto;   */
+    /* flex-grow: 0;  */
+    /* flex-shrink: 0; */
+    padding: 1px;
+    /* justify-content: center; */
 
     
 }
 
 .singulardiv {
-   width: calc(600px/16);
-   height: calc(600px/16);
-   border: 1px solid black;
-  
-   
-  
-   
-   
+   width: calc(600px/20);
+   height: calc(600px/20);
+   /* min-width: 30px;
+   min-height: 20px; */
+   /* border: 1px solid black; */
+   /* align-items: center; */
+   /* background-color: white; */
+   /* flex-grow: 1;
+   flex-shrink: 1; */
+   /* flex-basis: auto; */
 } 
 
 .content {
