@@ -10,7 +10,7 @@ let gridLimit = 20*20
 while (i < gridLimit) {
     const singularDiv = document.createElement('div');
     singularDiv.classList.add('singulardiv');
-    // content.style.cssText = `width: ${600/20}; height: ${600/20}`
+    singularDiv.style.cssText = `width: ${600/20}px; height: ${600/20}px`
     container.appendChild(singularDiv)
     i++;
 }
@@ -19,7 +19,7 @@ while (i < gridLimit) {
 
 const divs = document.querySelectorAll('.singulardiv')
 
-divs.forEach(div => { div.addEventListener('mousemove', blackColor) });
+divs.forEach(div => { div.addEventListener('mouseover', blackColor) });
 
 
 function blackColor(e) {
@@ -29,10 +29,10 @@ function blackColor(e) {
 
 // 1st button = erase
 
-const eraser = document.querySelector('#paska')
+const eraser = document.querySelector('#erase')
 eraser.addEventListener('click', erase)
 
-function erase(e) {
+function erase() {
     divs.forEach(div => { div.addEventListener('mousemove', whiteColor) });
 
 }
@@ -41,5 +41,23 @@ function whiteColor(e) {
     e.target.style.backgroundColor = 'white'
 }
 
-// 2nd button
+// 3rd button = rainbow
+// seruaavaks, modaa ekaa while funkctioo niin että grid size päivittyy singuladiv leveys ja pituus kohtiin itsestään
+// tee rainbow funktio
 
+const rgbRand = document.querySelector('#rainbow')
+rgbRand.addEventListener('click',changeToRainbow)
+
+function changeToRainbow() {
+    divs.forEach(div => { div.addEventListener('mousemove', changeColor) });
+
+}
+
+function changeColor(e) {
+    e.target.style.backgroundColor = `rgb(${random()}, ${random()}, ${random()})`
+}
+
+
+function random() {
+    return Math.floor(Math.random()*255);
+}

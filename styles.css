@@ -24,13 +24,12 @@ body {
     /* flex-shrink: 0; */
     padding: 1px;
     /* justify-content: center; */
-
     
 }
 
-.singulardiv {
-   width: calc(600px/20);
-   height: calc(600px/20);
+/* .singulardiv { */
+   /* width: calc(600px/20); */
+   /* height: calc(600px/20); */
    /* min-width: 30px;
    min-height: 20px; */
    /* border: 1px solid black; */
@@ -39,7 +38,7 @@ body {
    /* flex-grow: 1;
    flex-shrink: 1; */
    /* flex-basis: auto; */
-} 
+/* }  */
 
 .content {
     display: flex;
