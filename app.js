@@ -25,6 +25,8 @@ const black = document.querySelector('#black')
 black.addEventListener('click', change)
 
 function change() {
+    divs.forEach(div => { div.removeEventListener('mousemove', whiteColor) });
+    divs.forEach(div => { div.removeEventListener('mousemove', changeColor) });
     divs.forEach(div => { div.addEventListener('mousemove', blackColor) });
 
 }
@@ -42,6 +44,8 @@ const eraser = document.querySelector('#erase')
 eraser.addEventListener('click', erase)
 
 function erase() {
+    divs.forEach(div => { div.removeEventListener('mousemove', blackColor) });
+    divs.forEach(div => { div.removeEventListener('mousemove', changeColor) });
     divs.forEach(div => { div.addEventListener('mousemove', whiteColor) });
 
 }
@@ -58,6 +62,9 @@ const rgbRand = document.querySelector('#rainbow')
 rgbRand.addEventListener('click', changeToRainbow)
 
 function changeToRainbow() {
+
+    divs.forEach(div => { div.removeEventListener('mousemove', whiteColor) });
+    divs.forEach(div => { div.removeEventListener('mousemove', blackColor) });
     divs.forEach(div => { div.addEventListener('mousemove', changeColor) });
 
 }
