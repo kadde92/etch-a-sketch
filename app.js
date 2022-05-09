@@ -3,7 +3,7 @@ const container = document.querySelector('.grid')
 const content = document.createElement('div');
 
 let i = 0;
-let gridSide = 20
+let gridSide = 16
 
 
 
@@ -17,14 +17,18 @@ while (i < (gridSide * gridSide)) {
 
 
 
-// 1st button draw with black color
 
-const divs = document.querySelectorAll('.singulardiv')
+const divs = document.querySelectorAll('.grid div')
+// const divs = document.getElementsByClassName('grid').childNodes;
+
+
+// 1st button draw with black color
 
 const black = document.querySelector('#black')
 black.addEventListener('click', change)
 
 function change() {
+    const divs = document.querySelectorAll('.grid div')
     divs.forEach(div => { div.removeEventListener('mousemove', whiteColor) });
     divs.forEach(div => { div.removeEventListener('mousemove', changeColor) });
     divs.forEach(div => { div.addEventListener('mousemove', blackColor) });
@@ -44,6 +48,7 @@ const eraser = document.querySelector('#erase')
 eraser.addEventListener('click', erase)
 
 function erase() {
+    const divs = document.querySelectorAll('.grid div')
     divs.forEach(div => { div.removeEventListener('mousemove', blackColor) });
     divs.forEach(div => { div.removeEventListener('mousemove', changeColor) });
     divs.forEach(div => { div.addEventListener('mousemove', whiteColor) });
@@ -62,7 +67,7 @@ const rgbRand = document.querySelector('#rainbow')
 rgbRand.addEventListener('click', changeToRainbow)
 
 function changeToRainbow() {
-
+    const divs = document.querySelectorAll('.grid div')
     divs.forEach(div => { div.removeEventListener('mousemove', whiteColor) });
     divs.forEach(div => { div.removeEventListener('mousemove', blackColor) });
     divs.forEach(div => { div.addEventListener('mousemove', changeColor) });
@@ -75,7 +80,7 @@ function changeColor(e) {
 
 
 function random() {
-    return Math.floor(Math.random() * 255);
+    return Math.floor(Math.random() * 256);
 }
 
 
@@ -88,12 +93,27 @@ gridBtn.addEventListener('click', askUser)
 function askUser() {
     let answer = prompt('How many squares per side do you want? (Gridsize)')
     if (answer <= 64) {
-        container.removeChild(singularDiv)
+        resizeGrid(answer)
     } else {
         console.log("Must be <= 64")
     }
+
+}
+
+function resizeGrid(userAnswer) {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild)
+    }
+    
+    let i = 0;
+    while (i < (userAnswer * userAnswer)) {
+        const newGrid = document.createElement('div')
+        newGrid.classList.add('newgrid')
+        newGrid.style.cssText = `width: ${600 / userAnswer}px; height: ${600 / userAnswer}px`
+        container.appendChild(newGrid)
+        i++
+    }
+
 }
 
 
-
-// take the answer and insert it to the while function
