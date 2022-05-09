@@ -3,23 +3,32 @@ const container = document.querySelector('.grid')
 const content = document.createElement('div');
 
 let i = 0;
-let gridLimit = 20*20
+let gridSide = 20
 
 
 
-while (i < gridLimit) {
+while (i < (gridSide * gridSide)) {
     const singularDiv = document.createElement('div');
     singularDiv.classList.add('singulardiv');
-    singularDiv.style.cssText = `width: ${600/20}px; height: ${600/20}px`
+    singularDiv.style.cssText = `width: ${600 / gridSide}px; height: ${600 / gridSide}px`
     container.appendChild(singularDiv)
     i++;
 }
 
-// add an eventlistener on mouseover for the divs
+
+
+// 1st button draw with black color
 
 const divs = document.querySelectorAll('.singulardiv')
 
-divs.forEach(div => { div.addEventListener('mouseover', blackColor) });
+const black = document.querySelector('#black')
+black.addEventListener('click', change)
+
+function change() {
+    divs.forEach(div => { div.addEventListener('mousemove', blackColor) });
+
+}
+
 
 
 function blackColor(e) {
@@ -27,7 +36,7 @@ function blackColor(e) {
     e.target.style.backgroundColor = 'black'
 }
 
-// 1st button = erase
+// 2nd button = erase
 
 const eraser = document.querySelector('#erase')
 eraser.addEventListener('click', erase)
@@ -46,7 +55,7 @@ function whiteColor(e) {
 // tee rainbow funktio
 
 const rgbRand = document.querySelector('#rainbow')
-rgbRand.addEventListener('click',changeToRainbow)
+rgbRand.addEventListener('click', changeToRainbow)
 
 function changeToRainbow() {
     divs.forEach(div => { div.addEventListener('mousemove', changeColor) });
@@ -59,5 +68,25 @@ function changeColor(e) {
 
 
 function random() {
-    return Math.floor(Math.random()*255);
+    return Math.floor(Math.random() * 255);
 }
+
+
+//4th button, changing the grid size, 1. button that fires an prompt that asks for the grid size -> change the gridsize with the prompt answer, cap is 64x64
+
+const gridBtn = document.querySelector('#gridsize')
+
+gridBtn.addEventListener('click', askUser)
+
+function askUser() {
+    let answer = prompt('How many squares per side do you want? (Gridsize)')
+    if (answer <= 64) {
+        container.removeChild(singularDiv)
+    } else {
+        console.log("Must be <= 64")
+    }
+}
+
+
+
+// take the answer and insert it to the while function
