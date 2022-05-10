@@ -10,21 +10,38 @@ body, h1, h2, h3, p, div, ul, ol, li {
 body {
     display: flex;
     flex-direction: column;
+    height: 100vh;
+    
+    
+}
+
+.header {
+    text-align: center;
+    flex-grow: 1;
+}
+
+.header h1 {
+    font-size: 40px;
+    padding-top: 15px;
+    /* color: rgb(223,118,28) */
 }
 
 .grid {
-    border-radius: 5px;
-    border: 2px solid #f2e8cf;
+    /* border-radius: 5px; */
+    /* border: 2px solid #f2e8cf; */
     height: 600px;
     width: 600px;
     display: flex;
     flex-wrap: wrap;
     /* flex-basis: auto;   */
-    /* flex-grow: 0;  */
-    /* flex-shrink: 0; */
+    flex-grow: 0;  
+    flex-shrink: 0; 
     padding: 1px;
     /* justify-content: center; */
-    
+    /* box-shadow: 10px 10px 15px #888888; */
+    box-shadow:  0px 2px 9px #888888;
+    background-color: white;
+   
 }
 
 /* .singulardiv { */
@@ -44,16 +61,52 @@ body {
     display: flex;
     justify-content: space-around;
     height: 600px;
-    padding: 10px 10px;
+    padding-bottom: 20px;
+    /* gap: 90px; */
+}
+
+.content, .header, .footer {
+    background-color: #f7f2f6;
 }
 
 
 .buttons {
     display: flex;
     flex-direction: column;
-    width: 60px;
+    width: 10%;
     gap: 30px;
     justify-content: center;
     
 }
 
+button {
+    background-color: #e6919b;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    
+}
+
+button:active {
+    background-color: #70b58f;
+}
+
+.footer {
+    flex-grow: 1;
+    flex-shrink: 0;
+    /* background-color:#a3b18a; */
+    /* margin-top: 15px; */
+    
+}
+ .footer p {
+     text-align: center;
+     padding-top: 25px;
+     font-weight: bolder;
+     font-family: 'Roboto', sans-serif;
+     
+     
+ }
