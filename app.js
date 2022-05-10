@@ -91,7 +91,7 @@ const gridBtn = document.querySelector('#gridsize')
 gridBtn.addEventListener('click', askUser)
 
 function askUser() {
-    let answer = prompt('How many squares per side do you want? (Gridsize)')
+    let answer = prompt('How many squares per side do you want? (max 64) ')
     if (answer <= 64) {
         resizeGrid(answer)
     } else {
