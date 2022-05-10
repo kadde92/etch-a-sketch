@@ -95,7 +95,7 @@ function askUser() {
     if (answer <= 64) {
         resizeGrid(answer)
     } else {
-        console.log("Must be <= 64")
+        alert("Must be <= 64")
     }
 
 }
